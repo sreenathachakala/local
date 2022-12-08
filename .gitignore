@@ -2,7 +2,7 @@
 *.py[cod]
 *.swp
 catalog-repo
-catalog_bundle
+# catalog_bundle
 dist
 .cache
 dist
