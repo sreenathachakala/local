@@ -28,7 +28,7 @@ class SPA(starlette.staticfiles.StaticFiles):
         super().__init__(directory=directory, packages=None, html=True, check_dir=True)
 
     async def lookup_path(self, path: str) -> T.Tuple[str, os.stat_result]:
-        full_path, stat_result = await super().lookup_path(path)
+        full_path, stat_result = await super().lookup_path(path.split("/").pop())
 
         # return index if a file cannot be found
         if stat_result is None:
