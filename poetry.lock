@@ -1298,7 +1298,7 @@ heapdict = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "3.10.6"
-content-hash = "847e47fa09cfe2bcec55242db03c8143b74a0bc0635a3d31a3bfaf4289e62d15"
+content-hash = "8ccbc9dff215e73998965e9e2fa9306d04200534a8f91a94dc78b265f6fe0a13"
 
 [metadata.files]
 aicsimageio = []
