@@ -1,7 +1,7 @@
 import contextlib
 import io
 import json
-
+import boto3
 import aiobotocore.session
 import botocore
 
@@ -24,11 +24,12 @@ async def get_aio_s3():
     )
 
 
-async def list_all_objects(**kw):
-    s3 = await get_aio_s3()
-    async for page in s3.get_paginator("list_objects_v2").paginate(**kw):
-        for obj in page.get("Contents", ()):
-            yield obj
+async def list_all_objects(*args, **kw):
+    objects = []
+    client = boto3.client('s3')
+    for bkt in client.list_buckets()["Buckets"]: 
+        objects.append({'name': bkt['Name'], 'title': "", 'description': "", 'relevanceScore': 1})
+    return objects
 
 
 class IncompleteResultException(Exception):

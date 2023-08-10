@@ -50,8 +50,9 @@ class PackageDirContext:
 
 
 @QueryType.field("bucketConfigs")
-def query_bucket_configs(*_):
-    return []
+async def query_bucket_configs(*args, **kw):
+    bkts = await buckets.get_all_buckets(*args, **kw)
+    return bkts
 
 
 @QueryType.field("bucketConfig")

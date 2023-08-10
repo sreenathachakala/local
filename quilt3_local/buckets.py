@@ -13,3 +13,7 @@ async def bucket_is_readable(bucket: str) -> bool:
         if e.response["Error"]["Code"] == "403":
             return False
         raise
+
+async def get_all_buckets(*args, **kw):
+    buckets = await aws.list_all_objects(*args, **kw)
+    return buckets
